@@ -29,6 +29,8 @@ ERR_HANDLER () {
 
 trap ERR_HANDLER EXIT
 
+echo "[*] Command ran:`if [ $EUID = 0 ]; then echo " sudo"; fi` ./sshrd.sh $@"
+
 if [ ! -e sshtars/README.md ]; then
     git submodule update --init --recursive
 fi
